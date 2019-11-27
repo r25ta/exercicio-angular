@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { products } from '../products';
+import { CartService} from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,7 +12,11 @@ export class ProductDetailsComponent implements OnInit {
 
   product;
 
-  constructor(private route : ActivatedRoute) { }
+  /*Inject dos componentes de rota para navegação das páginas e carrinho de compras */
+  constructor(
+    private route : ActivatedRoute
+    ,private cartService : CartService
+  ) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -19,4 +24,8 @@ export class ProductDetailsComponent implements OnInit {
   });
   }
 
+  addToCart(product){
+    window.alert('Produto foi adicionado em seu carrinho de compra!');
+    this.cartService.addToCart(product);
+  }
 }
