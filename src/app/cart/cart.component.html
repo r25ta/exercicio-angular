@@ -1,5 +1,9 @@
 <h3>Carrinho de Compras</h3>
 
+<p>
+  <a routerLink="/shipping">Calcular Frete</a>
+</p> 
+
 <div class="cart-item" *ngFor="let item of itens">
   <span>{{ item.name }}</span>
   <span>{{ item.price | currency }}</span>
